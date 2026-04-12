@@ -1,0 +1,39 @@
+// ─── Color Palette ───────────────────────────────────────────────────────────
+$bg:            #050510;
+$bg-surface:    #080820;
+$bg-card:       #0c0c28;
+$bg-card-hover: #0f0f30;
+
+$accent:        #00d4ff;
+$accent-dim:    rgba(0, 212, 255, 0.55);
+$accent-glow:   rgba(0, 212, 255, 0.18);
+$accent-border: rgba(0, 212, 255, 0.22);
+$accent-border-hover: rgba(0, 212, 255, 0.65);
+
+$secondary:     #bd93f9;   // purple — secondary highlights
+$danger:        #ff2d78;   // pink-red — tags, alerts
+$success:       #50fa7b;   // green — active badge
+$warning:       #ffb86c;   // orange — IEEE badge
+
+$text:          #8892a4;   // body text
+$text-bright:   #ccd6f6;   // headings, emphasis
+$text-dim:      #3d4663;   // very muted (dates, decorations)
+$text-code:     #a8daff;   // inline code
+
+$border:        rgba(255, 255, 255, 0.05);
+
+// ─── Typography ──────────────────────────────────────────────────────────────
+$mono:  'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+// ─── Spacing ─────────────────────────────────────────────────────────────────
+$section-padding: 6rem 0;
+$container-max:   1100px;
+$container-pad:   2rem;
+
+// ─── Transitions ─────────────────────────────────────────────────────────────
+$transition: 0.2s ease;
+$transition-slow: 0.4s ease;
+
+// ─── Breakpoints ─────────────────────────────────────────────────────────────
+$bp-md: 768px;
+$bp-lg: 1024px;

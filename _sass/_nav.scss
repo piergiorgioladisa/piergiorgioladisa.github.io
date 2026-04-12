@@ -1,0 +1,109 @@
+// ─── Navigation ──────────────────────────────────────────────────────────────
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  transition: background $transition-slow, border-color $transition-slow;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    background: rgba(5, 5, 16, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: $accent-border;
+  }
+
+  &__brand {
+    font-size: 0.82rem;
+    color: $text-dim;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    .nav__user   { color: $success; }
+    .nav__sep    { color: $text-dim; }
+    .nav__host   { color: $accent; }
+    .nav__dollar { color: $text; margin-left: 0.3rem; }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: auto;
+    list-style: none;
+
+    li a {
+      font-size: 0.78rem;
+      color: $text-dim;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid transparent;
+      transition: all $transition;
+      letter-spacing: 0.04em;
+
+      &:hover,
+      &.active {
+        color: $accent;
+        border-color: $accent-border;
+        background: $accent-glow;
+      }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: auto;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: $text;
+      transition: all $transition;
+    }
+
+    &.open {
+      span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    }
+  }
+}
+
+@media (max-width: $bp-md) {
+  .nav__links {
+    display: none;
+    position: fixed;
+    top: 52px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(5, 5, 16, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid $accent-border;
+    padding: 1rem 0 1.5rem;
+    gap: 0;
+
+    li a {
+      display: block;
+      padding: 0.7rem 2rem;
+      border: none;
+      font-size: 0.85rem;
+    }
+
+    &.open { display: flex; }
+  }
+
+  .nav__toggle { display: flex; }
+}

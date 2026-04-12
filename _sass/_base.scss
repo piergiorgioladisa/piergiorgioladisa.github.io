@@ -1,0 +1,213 @@
+// ─── Reset ───────────────────────────────────────────────────────────────────
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: $accent-border $bg-surface;
+}
+
+::-webkit-scrollbar         { width: 6px; }
+::-webkit-scrollbar-track   { background: $bg-surface; }
+::-webkit-scrollbar-thumb   { background: $accent-border; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: $accent-dim; }
+
+::selection {
+  background: rgba(0, 212, 255, 0.25);
+  color: $text-bright;
+}
+
+body {
+  font-family: $mono;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: $text;
+  background-color: $bg;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+// ─── Links ───────────────────────────────────────────────────────────────────
+a {
+  color: $accent;
+  text-decoration: none;
+  transition: color $transition, opacity $transition;
+
+  &:hover {
+    color: $text-bright;
+  }
+}
+
+// ─── Container ───────────────────────────────────────────────────────────────
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $container-pad;
+}
+
+// ─── Section base ────────────────────────────────────────────────────────────
+.section {
+  padding: $section-padding;
+
+  &--alt {
+    background: $bg-surface;
+  }
+
+  &__title {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: $accent-dim;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+
+    .prompt-dollar {
+      color: $accent;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+// ─── Prompt decorations ───────────────────────────────────────────────────────
+.prompt-user   { color: $success; }
+.prompt-sep    { color: $text-dim; }
+.prompt-path   { color: $accent; }
+.prompt-dollar { color: $accent; }
+.prompt-gt     { color: $secondary; margin-right: 0.4rem; }
+
+// ─── Terminal block ───────────────────────────────────────────────────────────
+.terminal-block {
+  background: $bg-card;
+  border: 1px solid $accent-border;
+  border-radius: 6px;
+  overflow: hidden;
+
+  .terminal-header {
+    background: darken(#0c0c28, 2%);
+    padding: 0.65rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-bottom: 1px solid $accent-border;
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+
+      &--red    { background: #ff5f57; }
+      &--yellow { background: #febc2e; }
+      &--green  { background: #28c840; }
+    }
+
+    .terminal-title {
+      margin-left: 0.6rem;
+      font-size: 0.75rem;
+      color: $text-dim;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .terminal-body {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.82rem;
+    line-height: 2;
+
+    .t-prompt  { color: $accent; margin-right: 0.4rem; }
+    .t-cmd     { color: $text-bright; }
+    .t-flag    { color: $secondary; }
+    .t-val     { color: $danger; }
+    .t-comment { color: $text-dim; }
+    .t-output  { color: $text; padding-left: 1rem; }
+    .t-key     { color: $accent-dim; min-width: 120px; display: inline-block; }
+  }
+}
+
+// ─── Tag / Badge ──────────────────────────────────────────────────────────────
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.72rem;
+  border: 1px solid $accent-border;
+  color: $accent-dim;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  transition: border-color $transition, color $transition;
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+
+  &--danger  { border-color: rgba(255, 45, 120, 0.4); color: $danger; }
+  &--purple  { border-color: rgba(189, 147, 249, 0.4); color: $secondary; }
+  &--success { border-color: rgba(80, 250, 123, 0.4); color: $success; }
+  &--warning { border-color: rgba(255, 184, 108, 0.4); color: $warning; }
+  &--dim     { border-color: $text-dim; color: $text-dim; }
+}
+
+// ─── Buttons ──────────────────────────────────────────────────────────────────
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  font-family: $mono;
+  font-size: 0.82rem;
+  color: $accent;
+  border: 1px solid $accent-border;
+  background: transparent;
+  cursor: pointer;
+  transition: all $transition;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    background: $accent-glow;
+    border-color: $accent;
+    color: $text-bright;
+    box-shadow: 0 0 16px $accent-glow;
+  }
+
+  &--solid {
+    background: rgba(0, 212, 255, 0.12);
+    border-color: $accent;
+    color: $accent;
+  }
+}
+
+// ─── Highlight / Rouge code blocks ───────────────────────────────────────────
+.highlight {
+  background: $bg-card !important;
+  border: 1px solid $accent-border;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+code {
+  font-family: $mono;
+  font-size: 0.85em;
+  color: $text-code;
+  background: rgba(0, 212, 255, 0.07);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+// ─── Horizontal divider ───────────────────────────────────────────────────────
+.divider {
+  border: none;
+  border-top: 1px solid $border;
+  margin: 3rem 0;
+}

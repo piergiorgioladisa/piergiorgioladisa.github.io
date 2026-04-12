@@ -1,0 +1,264 @@
+// ─── Blog listing ─────────────────────────────────────────────────────────────
+.blog-listing {
+  padding-top: 8rem;
+  min-height: 100vh;
+
+  &__header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid $border;
+    padding-bottom: 1.5rem;
+
+    h1 {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: $accent-dim;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.82rem;
+      color: $text-dim;
+    }
+  }
+
+  // Tag filter
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+
+    .filter-tag {
+      font-size: 0.72rem;
+      color: $text-dim;
+      border: 1px solid $border;
+      padding: 0.2rem 0.55rem;
+      cursor: pointer;
+      transition: all $transition;
+      background: none;
+      font-family: $mono;
+      border-radius: 2px;
+
+      &:hover,
+      &.active {
+        color: $accent;
+        border-color: $accent-border;
+        background: $accent-glow;
+      }
+
+      &--all { color: $text; border-color: $accent-border; }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.post-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid $border;
+  transition: border-color $transition;
+
+  &:hover {
+    border-bottom-color: $accent-border;
+
+    .post-card__title { color: $accent; }
+  }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  &__date {
+    font-size: 0.75rem;
+    color: $text-dim;
+    letter-spacing: 0.05em;
+    padding-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  &__content {}
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  &__title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: $text-bright;
+    margin-bottom: 0.4rem;
+    transition: color $transition;
+    display: block;
+    line-height: 1.4;
+  }
+
+  &__excerpt {
+    font-size: 0.8rem;
+    color: $text;
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__read-more {
+    font-size: 0.75rem;
+    color: $accent-dim;
+
+    &:hover { color: $accent; }
+  }
+}
+
+// ─── Blog post page ───────────────────────────────────────────────────────────
+.post-page {
+  padding-top: 8rem;
+  max-width: 720px;
+  margin: 0 auto;
+  padding-bottom: 6rem;
+
+  &__back {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: $text-dim;
+    margin-bottom: 2.5rem;
+    transition: color $transition;
+
+    &:hover { color: $accent; }
+  }
+
+  &__header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $border;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    color: $text-bright;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.76rem;
+    color: $text-dim;
+
+    span { display: flex; align-items: center; gap: 0.3rem; }
+  }
+
+  &__body {
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: $text;
+
+    h1, h2, h3, h4 {
+      color: $text-bright;
+      margin: 2rem 0 0.75rem;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    h1 { font-size: 1.5rem; }
+    h2 {
+      font-size: 1.1rem;
+      padding-left: 1rem;
+      border-left: 2px solid $accent;
+    }
+    h3 { font-size: 0.95rem; color: $accent-dim; }
+
+    p { margin-bottom: 1.2rem; }
+
+    ul, ol {
+      margin: 1rem 0 1.2rem 1.5rem;
+      li { margin-bottom: 0.3rem; }
+    }
+
+    a {
+      color: $accent;
+      border-bottom: 1px solid $accent-border;
+      padding-bottom: 1px;
+      &:hover { color: $text-bright; border-bottom-color: $text-bright; }
+    }
+
+    blockquote {
+      border-left: 2px solid $accent-dim;
+      padding: 0.75rem 1.25rem;
+      margin: 1.5rem 0;
+      background: $bg-card;
+      color: $text;
+      font-style: italic;
+    }
+
+    img {
+      max-width: 100%;
+      border: 1px solid $accent-border;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid $border;
+      margin: 2.5rem 0;
+    }
+  }
+
+  &__footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid $border;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .post-nav-link {
+      font-size: 0.78rem;
+      color: $text-dim;
+
+      &:hover { color: $accent; }
+
+      span { display: block; font-size: 0.68rem; color: $text-dim; margin-bottom: 0.2rem; }
+      strong { color: $text; font-weight: 400; }
+    }
+  }
+}
+
+// ─── Empty state ──────────────────────────────────────────────────────────────
+.no-posts {
+  text-align: center;
+  padding: 4rem 0;
+  color: $text-dim;
+  font-size: 0.82rem;
+
+  p:first-child {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: $accent-border;
+  }
+}

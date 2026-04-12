@@ -1,0 +1,26 @@
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Home">
+   <!--  <span class="nav__user">pl</span><span class="nav__sep">@</span><span class="nav__host">github.io</span><span class="nav__dollar">:~$</span> -->
+  </a>
+
+  <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav__links" id="nav-links" role="list">
+    {% if page.url == '/' or page.url == '/index.html' %}
+      <li><a href="#about">./about</a></li>
+      <li><a href="#research">./research</a></li>
+      <li><a href="#experience">./experience</a></li>
+      <li><a href="#contact">./contact</a></li>
+    {% else %}
+      <li><a href="{{ '/' | relative_url }}#about">./about</a></li>
+      <li><a href="{{ '/' | relative_url }}#research">./research</a></li>
+      <li><a href="{{ '/' | relative_url }}#experience">./experience</a></li>
+      <li><a href="{{ '/' | relative_url }}#contact">./contact</a></li>
+    {% endif %}
+    <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>./blog</a></li>
+  </ul>
+</nav>

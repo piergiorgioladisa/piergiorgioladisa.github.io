@@ -1,0 +1,452 @@
+// ─── About ───────────────────────────────────────────────────────────────────
+.about {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__bio {
+    p {
+      color: $text;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+
+      strong { color: $text-bright; }
+    }
+
+    .bio__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__skills {
+    .terminal-block {
+      // Uniform row layout for all terminal output lines
+      .t-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        line-height: 2;
+
+        .t-key {
+          color: $accent-dim;
+          width: 110px;
+          flex-shrink: 0;
+          // override any inherited padding
+          padding-left: 0;
+        }
+
+        .t-val   { color: $text; }
+        .t-level { font-size: 0.7rem; color: $text-dim; }
+
+        .lang-bar {
+          width: 70px;
+          flex-shrink: 0;
+          height: 2px;
+          background: $accent-border;
+          border-radius: 1px;
+          position: relative;
+          overflow: hidden;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            height: 100%;
+            background: $accent;
+            width: var(--w, 50%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ─── Research ─────────────────────────────────────────────────────────────────
+.research {
+  &__interests {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.6rem;
+    margin-bottom: 3.5rem;
+
+    .interest-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.83rem;
+      color: $text;
+      padding: 0.5rem 0;
+
+      .prompt-gt { color: $accent; flex-shrink: 0; margin-top: 0.05rem; }
+    }
+  }
+
+  &__pub-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    h3 {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: $accent-dim;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .scholar-link {
+      font-size: 0.75rem;
+      color: $text-dim;
+
+      &:hover { color: $accent; }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.pub-card {
+  background: $bg-card;
+  border: 1px solid $accent-border;
+  padding: 1.25rem 1.4rem;
+  transition: border-color $transition, box-shadow $transition, background $transition;
+  cursor: default;
+
+  &:hover {
+    border-color: $accent-border-hover;
+    background: $bg-card-hover;
+    box-shadow: 0 0 20px $accent-glow, inset 0 0 20px rgba(0, 212, 255, 0.02);
+  }
+
+  &--featured {
+    grid-column: span 2;
+    border-color: rgba(255, 184, 108, 0.3);
+    background: linear-gradient(135deg, rgba(255, 184, 108, 0.04), $bg-card);
+
+    &:hover {
+      border-color: rgba(255, 184, 108, 0.7);
+      box-shadow: 0 0 24px rgba(255, 184, 108, 0.15);
+    }
+
+    @media (max-width: $bp-md) {
+      grid-column: span 1;
+    }
+  }
+
+  &__venue {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .venue-badge {
+      padding: 0.1rem 0.45rem;
+      border-radius: 2px;
+      font-weight: 600;
+      border: 1px solid;
+
+      &--ieee-sp {
+        color: $warning;
+        border-color: rgba(255, 184, 108, 0.5);
+        background: rgba(255, 184, 108, 0.06);
+      }
+
+      &--ieee-sp-mag {
+        color: $warning;
+        border-color: rgba(255, 184, 108, 0.4);
+        background: rgba(255, 184, 108, 0.05);
+      }
+
+      &--acm {
+        color: $secondary;
+        border-color: rgba(189, 147, 249, 0.4);
+        background: rgba(189, 147, 249, 0.05);
+      }
+
+      &--acsac {
+        color: $accent;
+        border-color: $accent-border;
+        background: $accent-glow;
+      }
+
+      &--thesis {
+        color: $text-dim;
+        border-color: rgba(61, 70, 99, 0.6);
+        background: transparent;
+      }
+
+      &--ieee-other {
+        color: $text;
+        border-color: $border;
+        background: transparent;
+      }
+    }
+
+    .pub-year {
+      color: $text-dim;
+      margin-left: auto;
+    }
+  }
+
+  &__title {
+    font-size: 0.84rem;
+    color: $text-bright;
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+
+  &__authors {
+    font-size: 0.74rem;
+    color: $text-dim;
+  }
+
+  &__links {
+    margin-top: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+
+    a {
+      font-size: 0.72rem;
+      color: $accent-dim;
+      border-bottom: 1px solid $accent-border;
+      padding-bottom: 1px;
+
+      &:hover { color: $accent; border-bottom-color: $accent; }
+    }
+  }
+}
+
+// ─── Experience timeline ──────────────────────────────────────────────────────
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, $accent-dim, transparent);
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 2.8rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem;
+      top: 0.45rem;
+      width: 7px;
+      height: 7px;
+      background: $bg;
+      border: 1px solid $accent;
+      border-radius: 50%;
+      box-shadow: 0 0 8px $accent-glow;
+    }
+
+    &--active::before {
+      background: $accent;
+      box-shadow: 0 0 12px $accent-glow;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  &__company {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: $text-bright;
+  }
+
+  &__role {
+    font-size: 0.78rem;
+    color: $accent-dim;
+    letter-spacing: 0.04em;
+  }
+
+  &__date {
+    font-size: 0.72rem;
+    color: $text-dim;
+    margin-left: auto;
+
+    @media (max-width: $bp-md) {
+      margin-left: 0;
+    }
+  }
+
+  &__active {
+    display: inline-block;
+    font-size: 0.68rem;
+    color: $success;
+    border: 1px solid rgba(80, 250, 123, 0.4);
+    padding: 0.05rem 0.4rem;
+    animation: glow-pulse 2.5s ease-in-out infinite;
+    vertical-align: middle;
+  }
+
+  &__location {
+    font-size: 0.72rem;
+    color: $text-dim;
+    margin-bottom: 0.75rem;
+  }
+
+  &__bullets {
+    list-style: none;
+    padding: 0;
+
+    li {
+      position: relative;
+      padding-left: 1.2rem;
+      font-size: 0.82rem;
+      color: $text;
+      line-height: 1.7;
+      margin-bottom: 0.3rem;
+
+      &::before {
+        content: '//';
+        position: absolute;
+        left: 0;
+        color: $text-dim;
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+// ─── Certifications ───────────────────────────────────────────────────────────
+.certs {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+
+.cert-card {
+  background: $bg-card;
+  border: 1px solid $accent-border;
+  padding: 1.1rem 1.2rem;
+  transition: all $transition;
+
+  &:hover {
+    border-color: $accent-border-hover;
+    box-shadow: 0 0 16px $accent-glow;
+  }
+
+  &__year {
+    font-size: 0.68rem;
+    color: $text-dim;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+
+  &__title {
+    font-size: 0.82rem;
+    color: $text-bright;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+
+  &__issuer {
+    font-size: 0.72rem;
+    color: $accent-dim;
+  }
+
+  &--highlight {
+    border-color: rgba(255, 184, 108, 0.3);
+    background: linear-gradient(135deg, rgba(255, 184, 108, 0.04), $bg-card);
+
+    &:hover {
+      border-color: rgba(255, 184, 108, 0.6);
+      box-shadow: 0 0 16px rgba(255, 184, 108, 0.12);
+    }
+
+    .cert-card__title { color: $warning; }
+  }
+}
+
+// ─── Contact ──────────────────────────────────────────────────────────────────
+.contact {
+  text-align: center;
+
+  &__lead {
+    font-size: 0.9rem;
+    color: $text;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: $text;
+    border: 1px solid $border;
+    padding: 0.6rem 1.1rem;
+    transition: all $transition;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      color: $accent;
+      border-color: $accent-border;
+      background: $accent-glow;
+    }
+  }
+
+  &__note {
+    font-size: 0.75rem;
+    color: $text-dim;
+    letter-spacing: 0.05em;
+  }
+}
