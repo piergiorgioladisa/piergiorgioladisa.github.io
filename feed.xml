@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://piergiorgioladisa.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piergiorgioladisa.github.io/" rel="alternate" type="text/html" /><updated>2026-04-15T15:47:14+00:00</updated><id>https://piergiorgioladisa.github.io/feed.xml</id><title type="html">Piergiorgio Ladisa</title><subtitle>Offensive Security Engineer specializing in software supply chain security. Red Team Operator. PhD in Computer Science. OSCP · CRTO.</subtitle><author><name>Piergiorgio Ladisa</name></author><entry><title type="html">Hello World — Why I Started This Blog</title><link href="https://piergiorgioladisa.github.io/blog/2026/04/hello-world/" rel="alternate" type="text/html" title="Hello World — Why I Started This Blog" /><published>2026-04-11T00:00:00+00:00</published><updated>2026-04-11T00:00:00+00:00</updated><id>https://piergiorgioladisa.github.io/blog/2026/04/hello-world</id><content type="html" xml:base="https://piergiorgioladisa.github.io/blog/2026/04/hello-world/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ whoami
+pl — Offensive Security Engineer, Red Team Operator
+</code></pre></div></div>
+
+<h2 id="why-a-blog">Why a blog?</h2>
+
+<p>I’ve been accumulating notes for years, between research findings, vulnerability write-ups, random
+observations about CI/CD pipeline security that didn’t fit into a paper. A blog is the right
+format: low overhead, no peer-review cycle, and I can be as verbose or as terse as the topic
+deserves.</p>
+
+<h2 id="what-to-expect">What to expect</h2>
+
+<p>A few recurring themes:</p>
+
+<p><strong>Software supply chain security</strong> — My PhD research focused on OSS attack taxonomies and malicious
+package detection. There’s still a lot of ground to cover: typosquatting automation, dependency
+confusion variations, CI pipeline poisoning. Expect write-ups on techniques I encounter in the wild
+or during red team operations (suitably anonymized).</p>
+
+<p><strong>CI/CD offensive techniques</strong> — GitHub Actions, GitLab CI, Azure Pipelines: every
+environment has interesting attack surfaces. I’ll document what I find, from OIDC token abuse to
+poisoned pipeline execution (PPE) primitives.</p>
+
+<p><strong>Bug bounty / responsible disclosure</strong> — I disclose vulnerabilities through when I find
+something in my spare time. Once disclosure timelines allow, I’ll write about the more interesting
+finds.</p>
+
+<p><strong>Red team notes</strong> — General tradecraft, tool reviews, methodology thoughts. Nothing that burns
+operational security, but enough to be useful.</p>
+
+<hr />]]></content><author><name>Piergiorgio Ladisa</name></author><category term="non-technical" /><summary type="html"><![CDATA[A brief introduction to what this space will be about: supply chain security research, CI/CD offensive techniques, responsible disclosure write-ups, and whatever else I find interesting enough to write down.]]></summary></entry></feed>
